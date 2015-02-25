@@ -39,6 +39,16 @@ module.exports = function(environment) {
     ENV.APP.rootElement = '#ember-testing';
   }
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:devise'
+  }
+
+  ENV['simple-auth-devise'] = {
+    serverTokenEndpoint: '/api/login',
+    tokenAttributeName: 'api_key',
+    identificationAttributeName: 'email'
+  }
+
   if (environment === 'production') {
 
   }
