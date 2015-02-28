@@ -1,11 +1,38 @@
-<h2 id="title">Welcome to Ember.js</h2>
+<div class="sectionnav">
+  <div class="brand">
+    Pebblescape
+  </div>
+  <ul class="nav navbar-nav">
+    {{#link-to 'apps' tagName="li" href=false}}
+        {{#link-to 'apps' bubbles=false}}Apps{{/link-to}}
+    {{/link-to}}
+    {{#link-to 'addons' tagName="li" href=false}}
+        {{#link-to 'addons' bubbles=false}}Addons{{/link-to}}
+    {{/link-to}}
+    {{#link-to 'users' tagName="li" href=false}}
+        {{#link-to 'users' bubbles=false}}Users{{/link-to}}
+    {{/link-to}}
+    {{#link-to 'admin' tagName="li" href=false}}
+        {{#link-to 'admin' bubbles=false}}Admin{{/link-to}}
+    {{/link-to}}
+  </ul>
 
-{{#if session.isAuthenticated}}
-  <a {{ action 'invalidateSession' }}>{{session.content.email}} Logout</a>
-{{else}}
-  {{#link-to 'login'}}Login{{/link-to}}
-{{/if}}
+  <ul class="nav navbar-nav navbar-right">
+    {{#if session.isAuthenticated}}
+    <li class="dropdown">
+      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+        {{session.content.email}} <span class="avatar"><img {{bind-attr src=userGravatar}} /></span> <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a>Manage account</a></li>
+        <li class="divider"></li>
+        <li><a {{ action 'invalidateSession' }}>Log out</a></li>
+      </ul>
+    </li>
+    {{/if}}
+  </ul>
+</div>
 
-<a {{action 'xhrtest'}}>Test</a>
-
-{{outlet}}
+<div class="outlet">
+  {{outlet}}
+</div>

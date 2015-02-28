@@ -16,15 +16,35 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+
+    contentSecurityPolicy: {
+      "img-src": "'self' data: app.getsentry.com *",
+      "script-src": "'self' 'unsafe-eval' http://*:35729 //cdn.ravenjs.com ",
+      "font-src": "'self' http://fonts.gstatic.com",
+      "style-src": "'self' http://fonts.googleapis.com"
+    },
+
+    sentry: {
+      skipCdn: false, // skip loading from cdn
+      cdn: '//cdn.ravenjs.com',
+      dsn: process.env.RAVEN_DSN,
+      version: '1.1.16',
+      whitelistUrls: [ 'localhost:4200', 'api.pebblesinspace.com' ],
+      development: true // Set to true, to disable while developing
+    },
+
+    sassOptions: {
+      sourceMap: true
     }
   };
 
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
-    // ENV.APP.LOG_ACTIVE_GENERATION = true;
-    // ENV.APP.LOG_TRANSITIONS = true;
+    ENV.APP.LOG_ACTIVE_GENERATION = true;
+    ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
-    // ENV.APP.LOG_VIEW_LOOKUPS = true;
+    ENV.APP.LOG_VIEW_LOOKUPS = true;
   }
 
   if (environment === 'test') {
