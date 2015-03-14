@@ -3,7 +3,10 @@
     "document",
     "window",
     "-Promise",
-    "Raven"
+    "Raven",
+    "md5",
+    "MessageBus",
+    "bootbox"
   ],
   "browser": true,
   "boss": true,

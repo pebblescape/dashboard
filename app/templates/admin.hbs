@@ -1,0 +1,17 @@
+<div class="sidebar">
+  <ul>
+    <li>Stuff</li>
+  </ul>
+</div>
+<div class="main-content">
+  <div style='clear: both'>
+    <button {{action "update"}} {{bind-attr disabled="upgrading"}} class='btn'>{{upgradeButtonText}}</button>
+    <button {{action "resetUpgrade"}} class="btn unlock">Reset Upgrade</button>
+  </div>
+
+  <p>
+    {{status}} {{percent}}
+  </p>
+
+  {{x-console output=output followOutput=true}}
+</div>

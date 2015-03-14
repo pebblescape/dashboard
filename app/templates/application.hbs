@@ -2,6 +2,7 @@
   <div class="brand">
     Pebblescape
   </div>
+  {{#if session.isAuthenticated}}
   <ul class="nav navbar-nav">
     {{#link-to 'apps' tagName="li" href=false}}
         {{#link-to 'apps' bubbles=false}}Apps{{/link-to}}
@@ -16,6 +17,7 @@
         {{#link-to 'admin' bubbles=false}}Admin{{/link-to}}
     {{/link-to}}
   </ul>
+  {{/if}}
 
   <ul class="nav navbar-nav navbar-right">
     {{#if session.isAuthenticated}}

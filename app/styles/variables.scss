@@ -1,2 +1,6 @@
+$gradientBase: #3067B6;
+$gradientLight: lighten($gradientBase, 5%);
+$gradientCircle: rgba(darken($gradientBase, 10%), 0.8);
+
 $txtColor: #3F3F44;
-$navHover: #4CCEF1;
+$navHover: #3BE8FD;

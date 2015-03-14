@@ -9,11 +9,11 @@ html, body {
 }
 
 body{
-  background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),-webkit-radial-gradient(40% 0%, #545ab6 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, rgba(118, 72, 160, 0.8) 0%, rgba(118, 72, 160, 0) 50%);
-  background-image: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),radial-gradient( at 40% 0%, #545ab6 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, rgba(118, 72, 160, 0.8) 0%, rgba(118, 72, 160, 0) 50%);
+  background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),-webkit-radial-gradient(40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
+  background-image: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),radial-gradient( at 40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
   background-repeat: no-repeat,repeat,no-repeat;
   background-size: auto,6000px 1400px,600px 600px;
-  background-color: #4D407A;
+  background-color: $gradientBase;
   background-position: left bottom,left bottom;
   font-family: 'Open Sans', sans-serif;
   font-size: 14px;
@@ -26,9 +26,9 @@ body{
   height: 100%;
   margin: auto;
   max-width: 1440px;
-  background-color: #4D407A;
-  background-image: -webkit-radial-gradient(40% 0%, #545ab6 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, rgba(118, 72, 160, 0.8) 0%, rgba(118, 72, 160, 0) 50%);
-  background-image: radial-gradient( at 40% 0%, #545ab6 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, rgba(118, 72, 160, 0.8) 0%, rgba(118, 72, 160, 0) 50%);
+  background-color: $gradientBase;
+  background-image: -webkit-radial-gradient(40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
+  background-image: radial-gradient( at 40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
   background-position: left bottom,left bottom;
   background-repeat: repeat,no-repeat;
   background-size: 6000px 1400px,600px 600px;
@@ -47,12 +47,15 @@ a {
   right: 0;
   background: rgba(255, 255, 255, 0.04);
   color: #FFF;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
 
   .brand {
     float: left;
     margin: 0;
     padding: 15px;
-    font-weight: bold;
+    // font-weight: bold;
+    width: 260px;
+    text-transform: uppercase;
   }
 
   .nav li a {
@@ -143,4 +146,15 @@ a {
 .login-form {
   width: 500px;
   margin: 20px auto;
+}
+
+.logs {
+  margin-top: 20px;
+  overflow-x: scroll;
+  height: 400px;
+  white-space: pre;
+  font-family: monospace;
+  background-color: black;
+  color: #ddd;
+  padding: 10px;
 }

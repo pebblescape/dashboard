@@ -1,5 +1,9 @@
 <div class="sidebar">
-  side apps
+  <ul>
+  {{#each app in model}}
+    <li>{{app.name}}</li>
+  {{/each}}
+  </ul>
 </div>
 <div class="main-content">
   <a {{action 'xhrtest'}}>Test</a>
