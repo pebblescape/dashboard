@@ -1,7 +1,8 @@
 import Repo from 'dashboard/models/repo';
 import Ember from 'ember';
+import ProtectedRoute from 'dashboard/routes/protected';
 
-export default Ember.Route.extend({
+export default ProtectedRoute.extend({
   model: function(params) {
     return Repo.find(params.id);
   },

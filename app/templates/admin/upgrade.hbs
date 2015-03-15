@@ -18,9 +18,9 @@
   {{else}}
     <div style='clear: both'>
       <button {{action "start"}} {{bind-attr disabled="upgrading"}} class='btn btn-primary'>{{upgradeButtonText}}</button>
-      {{#unless upgrading}}
+      {{#if upgrading}}
         <button {{action "resetUpgrade"}} class="btn btn-warning">Reset Upgrade</button>
-      {{/unless}}
+      {{/if}}
     </div>
   {{/if}}
 
