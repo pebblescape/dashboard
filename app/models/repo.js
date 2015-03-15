@@ -24,7 +24,7 @@ var Repo = Ember.Object.extend({
 
   repoAjax: function(url, args) {
     args = args || {};
-    args.data = this.getProperties('path', 'version', 'branch');
+    args.data = this.getProperties('path', 'version', 'branch', 'name');
     return ajax(url, args);
   },
 
