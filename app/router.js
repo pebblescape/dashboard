@@ -11,7 +11,9 @@ Router.map(function() {
   this.route('apps');
   this.route('addons');
   this.route('users');
-  this.route('admin');
+  this.route('admin', function() {
+    this.resource('admin.upgrade', { path: '/upgrade/:id' });
+  });
 });
 
 export default Router;

@@ -1,9 +1,9 @@
 import ajax from "ic-ajax";
 import Ember from 'ember';
 
-var loaded = null;
+var loaded = [];
 
-var Upgrade = Ember.Object.extend({
+var Repo = Ember.Object.extend({
 
   upToDate: function() {
     return !this.get('upgrading') & (this.get('version') === this.get('latest.version'));
@@ -24,14 +24,14 @@ var Upgrade = Ember.Object.extend({
 
   repoAjax: function(url, args) {
     args = args || {};
-    args.data = this.getProperties('version', 'branch');
+    args.data = this.getProperties('path', 'version', 'branch');
     return ajax(url, args);
   },
 
   findLatest: function() {
     var self = this;
 
-    return new Ember.RSVP.Promise(function(resolve, reject) {
+    return new Ember.RSVP.Promise(function(resolve) {
       if (!self.get('shouldCheck')) { return resolve(); }
 
       self.set('checking', true);
@@ -42,8 +42,6 @@ var Upgrade = Ember.Object.extend({
           latest: Ember.Object.create(result.latest)
         });
         resolve();
-      }).catch(function(result) {
-        reject(result);
       });
     });
   },
@@ -71,20 +69,32 @@ var Upgrade = Ember.Object.extend({
   }
 });
 
-Upgrade.reopenClass({
-  find: function() {
-    return new Ember.RSVP.Promise(function (resolve, reject) {
-      if (loaded) { return resolve(loaded); }
+Repo.reopenClass({
+  findAll: function() {
+    return new Ember.RSVP.Promise(function (resolve) {
+      if (loaded.length) { return resolve(loaded); }
 
-      ajax("/api/admin/gitinfo").then(function(result) {
-        loaded = Upgrade.create(result.repo);
+      ajax("/api/admin/repos").then(function(result) {
+        loaded = result.repos.map(function(r) {
+          return Repo.create(r);
+        });
         resolve(loaded);
-      }).catch(function(result) {
-        reject(result);
       });
+    });
+  },
+
+  findUpgrading: function() {
+    return this.findAll().then(function(result) {
+      return result.findBy('upgrading', true);
+    });
+  },
+
+  find: function(id) {
+    return this.findAll().then(function(result) {
+      return result.findBy('id', id);
     });
   },
 
 });
 
-export default Upgrade;
+export default Repo;

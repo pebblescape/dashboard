@@ -22,7 +22,7 @@ module.exports = function(environment) {
       "img-src": "'self' data: app.getsentry.com *",
       "script-src": "'self' 'unsafe-eval' http://*:35729 //cdn.ravenjs.com ",
       "font-src": "'self' http://fonts.gstatic.com",
-      "style-src": "'self' http://fonts.googleapis.com"
+      "style-src": "'self' 'unsafe-inline' http://fonts.googleapis.com"
     },
 
     sentry: {

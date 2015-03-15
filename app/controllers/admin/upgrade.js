@@ -1,6 +1,8 @@
+/* global MessageBus, bootbox */
 import Ember from 'ember';
 
-export default Ember.Controller.extend({
+export default Ember.ObjectController.extend({
+
   init: function() {
     this._super();
     this.reset();
@@ -41,13 +43,13 @@ export default Ember.Controller.extend({
 
   startBus: function() {
     var self = this;
-    MessageBus.subscribe("/admin/upgrade", function(msg) {
+    MessageBus.subscribe("/docker/upgrade", function(msg) {
       self.messageReceived(msg);
     });
   },
 
   stopBus: function() {
-    MessageBus.unsubscribe("/admin/upgrade");
+    MessageBus.unsubscribe("/docker/upgrade");
   },
 
   reset: function() {
@@ -55,11 +57,11 @@ export default Ember.Controller.extend({
   },
 
   actions: {
-    update: function() {
+    start: function() {
       this.reset();
-      var upgrade = this.get('model');
-      if (upgrade.get('upgrading')) { return; }
-      upgrade.startUpgrade();
+      var repo = this.get('model');
+      if (repo.get('upgrading')) { return; }
+      repo.startUpgrade();
     },
 
     resetUpgrade: function() {
@@ -68,12 +70,13 @@ export default Ember.Controller.extend({
       bootbox.confirm("WARNING: You should only reset upgrades that have failed and are not running.\n\n"+
                       "This will NOT cancel currently running builds and should only be used as a last resort.", function(result) {
         if (result) {
-          var upgrade = self.get('model');
-          upgrade.resetUpgrade().then(function() {
+          var repo = self.get('model');
+          repo.resetUpgrade().then(function() {
             self.reset();
           });
         }
       });
     }
   },
+
 });

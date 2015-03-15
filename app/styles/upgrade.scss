@@ -1,0 +1,41 @@
+.main-content.admin {
+  padding: 10px;
+}
+
+div.logs {
+  margin-top: 20px;
+  overflow-x: scroll;
+  height: 400px;
+  white-space: pre;
+  font-family: monospace;
+  background-color: black;
+  color: #ddd;
+  padding: 10px;
+}
+
+table#repos {
+  margin-top: 10px;
+
+  .new-version {
+    h4 {
+      margin: 0 0 10px 0;
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li.new-commits {
+      font-style: italic;
+    }
+
+    button {
+      display: block;
+      padding: 2px 5px;
+      margin: 10px 0 0px 0;
+    }
+  }
+}

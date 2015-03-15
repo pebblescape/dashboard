@@ -15,7 +15,9 @@
     "md5": "~0.3.0",
     "bootstrap-sass-official": "~3.3.3",
     "ember-simple-auth": "0.7.3",
-    "bootbox": "~4.4.0"
+    "bootbox": "~4.4.0",
+    "message-bus": "https://raw.githubusercontent.com/SamSaffron/message_bus.git",
+    "momentjs": "~2.9.0"
   },
   "resolutions": {
     "md5": "~0.3.0"

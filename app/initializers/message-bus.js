@@ -1,3 +1,4 @@
+/* global MessageBus */
 import config from '../config/environment';
 
 export function initialize(/* container, application */) {

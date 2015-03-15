@@ -6,7 +6,9 @@ var app = new EmberApp();
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
 app.import('bower_components/bootbox/bootbox.js');
-app.import('bower_components/md5/build/md5.min.js');
+app.import('bower_components/md5/src/md5.js');
+app.import("bower_components/momentjs/moment.js");
+app.import("bower_components/message-bus/assets/message-bus.js");
 app.import('vendor/message-bus.js');
 
 // Use `app.import` to add additional libraries to the generated
