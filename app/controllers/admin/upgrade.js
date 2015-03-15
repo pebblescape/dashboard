@@ -43,13 +43,13 @@ export default Ember.ObjectController.extend({
 
   startBus: function() {
     var self = this;
-    MessageBus.subscribe("/docker/upgrade", function(msg) {
+    MessageBus.subscribe("/admin/upgrade", function(msg) {
       self.messageReceived(msg);
     });
   },
 
   stopBus: function() {
-    MessageBus.unsubscribe("/docker/upgrade");
+    MessageBus.unsubscribe("/admin/upgrade");
   },
 
   reset: function() {
