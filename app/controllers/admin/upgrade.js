@@ -11,6 +11,9 @@ export default Ember.ObjectController.extend({
   complete: Ember.computed.equal('status', 'complete'),
   failed: Ember.computed.equal('status', 'failed'),
 
+  mikeUpgrade: Ember.computed.equal('model.name', 'mike'),
+  dashboardUpgrade: Ember.computed.equal('model.name', 'dashboard'),
+
   messageReceived: function(msg) {
     switch(msg.type) {
       case "log":
