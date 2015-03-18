@@ -1,10 +1,10 @@
 <div class="sidebar">
-  <ul>
-  {{#each app in model}}
-    <li>{{app.name}}</li>
-  {{/each}}
-  </ul>
+  <div class="sidelinks">
+    {{#each app in model}}
+      {{#link-to 'apps.app' app}}{{app.name}}{{/link-to}}
+    {{/each}}
+  </div>
 </div>
 <div class="main-content">
-  <a {{action 'xhrtest'}}>Test</a>
+  {{outlet}}
 </div>

@@ -8,12 +8,20 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route('login');
   this.route('index', {path: '/'});
-  this.route('apps');
+
+  this.resource('apps', function() {
+    this.route('app', { path: '/:name' });
+  });
+
+  this.resource('admin', function() {
+    this.route('upgrades');
+    this.route('upgrade', { path: '/upgrade/:id' });
+  });
+
   this.route('addons');
   this.route('users');
-  this.route('admin', function() {
-    this.resource('admin.upgrade', { path: '/upgrade/:id' });
-  });
+
+  this.route('not_found', { path: '/*url' });
 });
 
 export default Router;

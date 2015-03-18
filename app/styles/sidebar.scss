@@ -1,0 +1,18 @@
+.sidelinks {
+  margin: 10px 0;
+
+  a {
+    display: block;
+    color: #FFF;
+    padding: 5px 10px;
+
+    &:hover, &:active, &.active {
+      background: rgba(255, 255, 255, 0.1);
+      text-decoration: none;
+    }
+
+    &:active {
+      color: $navHover;
+    }
+  }
+}
