@@ -35,7 +35,7 @@ var Repo = Ember.Object.extend({
       if (!self.get('shouldCheck')) { return resolve(); }
 
       self.set('checking', true);
-      self.repoAjax('/api/admin/latest').then(function(result) {
+      self.repoAjax('/admin/latest').then(function(result) {
         self.setProperties({
           checking: false,
           lastCheckedAt: new Date().getTime(),
@@ -47,14 +47,14 @@ var Repo = Ember.Object.extend({
   },
 
   findProgress: function() {
-    return this.repoAjax('/api/admin/progress').then(function(result) {
+    return this.repoAjax('/admin/progress').then(function(result) {
       return result.progress;
     });
   },
 
   resetUpgrade: function() {
     var self = this;
-    return this.repoAjax('/api/admin/upgrade', { type: 'DELETE' }).then(function() {
+    return this.repoAjax('/admin/upgrade', { type: 'DELETE' }).then(function() {
       self.set('upgrading', false);
     });
   },
@@ -63,7 +63,7 @@ var Repo = Ember.Object.extend({
     var self = this;
     this.set('upgrading', true);
 
-    return this.repoAjax('/api/admin/upgrade', { type: 'POST' }).catch(function() {
+    return this.repoAjax('/admin/upgrade', { type: 'POST' }).catch(function() {
       self.set('upgrading', false);
     });
   }
@@ -71,14 +71,16 @@ var Repo = Ember.Object.extend({
 
 Repo.reopenClass({
   findAll: function() {
-    return new Ember.RSVP.Promise(function (resolve) {
+    return new Ember.RSVP.Promise(function (resolve, reject) {
       if (loaded.length) { return resolve(loaded); }
 
-      ajax("/api/admin/repos").then(function(result) {
+      ajax("/admin/repos").then(function(result) {
         loaded = result.repos.map(function(r) {
           return Repo.create(r);
         });
         resolve(loaded);
+      }, function(error){
+        reject(error);
       });
     });
   },

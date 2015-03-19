@@ -1,6 +1,6 @@
-import Ember from 'ember';
+import ApplicationRoute from 'dashboard/routes/application';
 
-export default Ember.Route.extend({
+export default ApplicationRoute.extend({
   beforeModel: function() {
     this.transitionTo('apps');
   }

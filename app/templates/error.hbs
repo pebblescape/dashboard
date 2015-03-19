@@ -1,0 +1,10 @@
+<div class="main-content full">
+  <div>
+    <h2 class="text-center">{{errorMsg}}</h2>
+    {{#if showUnhandled}}
+      <div class="logs">{{detail}}</div>
+    {{else}}
+      <p class="text-center">Unhandled internal server error. Please check server logs.</p>
+    {{/if}}
+  </div>
+</div>

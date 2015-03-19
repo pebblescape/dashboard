@@ -7,12 +7,14 @@
     {{#link-to 'apps' tagName="li" href=false}}
         {{#link-to 'apps' bubbles=false}}Apps{{/link-to}}
     {{/link-to}}
-    {{#link-to 'addons' tagName="li" href=false}}
-        {{#link-to 'addons' bubbles=false}}Addons{{/link-to}}
-    {{/link-to}}
-    {{#link-to 'users' tagName="li" href=false}}
-        {{#link-to 'users' bubbles=false}}Users{{/link-to}}
-    {{/link-to}}
+    {{#if nothing}}
+      {{#link-to 'addons' tagName="li" href=false}}
+          {{#link-to 'addons' bubbles=false}}Addons{{/link-to}}
+      {{/link-to}}
+      {{#link-to 'users' tagName="li" href=false}}
+          {{#link-to 'users' bubbles=false}}Users{{/link-to}}
+      {{/link-to}}
+    {{/if}}
     {{#link-to 'admin' tagName="li" href=false}}
         {{#link-to 'admin' bubbles=false}}Admin{{/link-to}}
     {{/link-to}}
