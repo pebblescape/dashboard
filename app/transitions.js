@@ -1,4 +1,4 @@
-export default function(){
+export default function() {
   // Admin tabs
   this.transition(
     this.fromRoute('admin.addons'),
@@ -20,4 +20,4 @@ export default function(){
     this.use('toLeft'),
     this.reverse('toRight')
   );
-};
+}
