@@ -6,6 +6,7 @@ export default {
     Ember.$.ajaxPrefilter(function(options) {
       if (!options.crossDomain) {
         options.accepts['*'] = 'application/vnd.pebblescape+json; version=1';
+        options.accepts['json'] = 'application/vnd.pebblescape+json; version=1';
       }
     });
   }

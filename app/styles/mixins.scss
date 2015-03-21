@@ -1,0 +1,19 @@
+@mixin translateY($y) {
+  -webkit-transform: translateY($y);
+  -moz-transform: translateY($y);
+  -ms-transform: translateY($y);
+  -o-transform: translateY($y);
+  transform: translateY($y);
+}
+
+@mixin transition-property($property) {
+  -webkit-transition-property: -webkit-#{$property};
+  -moz-transition-property: -moz-#{$property};
+  transition-property: $property;
+}
+
+@mixin transition-duration($duration) {
+  -webkit-transition-duration: $duration;
+  -moz-transition-duration: $duration;
+  transition-duration: $duration;
+}

@@ -1,3 +1,12 @@
+#app-loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -16px;
+  width: auto;
+  height: auto;
+}
+
 .loading-spinner-wrapper {
   position: absolute;
   width: 100%;
@@ -15,6 +24,12 @@
   width: 31px;
   height: 7px;
   text-align: center;
+
+  &.white {
+    i {
+      background: #fff;
+    }
+  }
 
   i {
     vertical-align: top;

@@ -1,8 +1,17 @@
-<div class="sidebar">
-  <div class="sidelinks">
-    {{#link-to 'admin.upgrades'}}Updates{{/link-to}}
+<div class="top-nav clearfix">
+  <div class="top-content">
+    <div class="top-name">
+      Administration
+    </div>
   </div>
 </div>
-<div class="main-content admin">
-  {{outlet}}
+<div class="main-content">
+  <div class="tab-nav">
+    {{#link-to 'admin.addons'}}{{fa-icon 'puzzle-piece'}} Addons{{/link-to}}
+    {{#link-to 'admin.users'}}{{fa-icon 'users'}} Users{{/link-to}}
+    {{#link-to 'admin.upgrades'}}{{fa-icon 'refresh'}} Updates{{/link-to}}
+  </div>
+  <div class="tab-content admin">
+    {{liquid-outlet}}
+  </div>
 </div>

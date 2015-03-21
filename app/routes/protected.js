@@ -1,7 +1,7 @@
-import ApplicationRoute from 'dashboard/routes/application';
+import Ember from 'ember';
 import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixin';
 
-export default ApplicationRoute.extend(AuthenticatedRouteMixin, {
+export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
     error: function(err){
       // When API token is invalidated, flush session and force login

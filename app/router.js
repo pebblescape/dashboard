@@ -14,12 +14,11 @@ Router.map(function() {
   });
 
   this.resource('admin', function() {
+    this.route('addons');
+    this.route('users');
     this.route('upgrades');
     this.route('upgrade', { path: '/upgrade/:id' });
   });
-
-  this.route('addons');
-  this.route('users');
 
   this.route('not_found', { path: '/*url' });
 });

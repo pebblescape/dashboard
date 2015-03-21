@@ -3,3 +3,7 @@ $border-radius-large: 3px;
 $border-radius-small: 2px;
 
 @import 'bower_components/bootstrap-sass-official/assets/stylesheets/_bootstrap';
+
+.dropdown-menu {
+  border-radius: 4px;
+}

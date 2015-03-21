@@ -1,8 +1,10 @@
 @import 'bootstrap';
 @import 'variables';
+@import 'mixins';
 @import 'loading-spinner';
 @import 'sidebar';
 @import 'upgrade';
+@import 'apps';
 
 html, body {
   height: 100%;
@@ -11,16 +13,16 @@ html, body {
 }
 
 body{
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  line-height: 1.42857;
+  color: $txtColor;
   background-image: -webkit-linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),-webkit-radial-gradient(40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
   background-image: linear-gradient( rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15)),radial-gradient( at 40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
   background-repeat: no-repeat,repeat,no-repeat;
   background-size: auto,6000px 1400px,600px 600px;
   background-color: $gradientBase;
   background-position: left bottom,left bottom;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  line-height: 1.42857;
-  color: $txtColor;
 }
 
 .dashboard-wrapper {
@@ -28,6 +30,7 @@ body{
   height: 100%;
   margin: auto;
   max-width: 1440px;
+  overflow: hidden;
   background-color: $gradientBase;
   background-image: -webkit-radial-gradient(40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),-webkit-radial-gradient(0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
   background-image: radial-gradient( at 40% 0%, $gradientLight 0%, rgba(84, 90, 182, 0) 100%),radial-gradient( at 0% 100%, $gradientCircle 0%, rgba(118, 72, 160, 0) 50%);
@@ -42,11 +45,7 @@ a {
 }
 
 .sectionnav {
-  position: absolute;
-  top: 0;
   height: 50px;
-  left: 0;
-  right: 0;
   background: rgba(255, 255, 255, 0.04);
   color: #FFF;
   box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
@@ -55,9 +54,21 @@ a {
     float: left;
     margin: 0;
     padding: 15px;
-    // font-weight: bold;
-    width: 260px;
-    text-transform: uppercase;
+
+    img {
+      position: relative;
+      top: -4px;
+    }
+
+    h4 {
+      position: relative;
+      top: -4px;
+      display: inline;
+      vertical-align: middle;
+      color: #fff;
+      font-weight: bold;
+      font-size: 15px;
+    }
   }
 
   .nav li a {
@@ -74,7 +85,10 @@ a {
   }
 
   .nav li.active a {
-    color: $navHover;
+    color: #FFF;
+    background: $gradientBase;
+    border-left: 1px solid #1A61A8;
+    border-right: 1px solid #1A61A8;
   }
 
   .navbar-right {
@@ -85,13 +99,119 @@ a {
     color: $txtColor;
   }
 
-  .dropdown-toggle {
+  .adminnav-toggle {
+    color: #fff;
+    display: block;
+    position: relative;
+    padding: 15px;
+    text-decoration: none;
+
+    .fa-angle-up {
+      display: none;
+    }
+
+    &:hover {
+      color: $navHover;
+    }
+  }
+}
+
+.adminnav {
+  height: 102px;
+  padding: 18px 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  text-align: center;
+  width: 260px;
+  background: #265090;
+  @include translateY(-102px);
+
+  a {
+    color: #fff;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 15px;
+
+    &.active {
+      color: $navHover;
+    }
+
+    i {
+      display: block;
+      font-size: 25px;
+      padding-bottom: 5px;
+    }
+  }
+}
+
+.adminnav-visible {
+  .adminnav {
+    @include translateY(0px);
+  }
+
+  .sidebar {
+    @include translateY(102px);
+
+    .adminnav-toggle {
+      .fa-angle-down {
+        display: none;
+      }
+
+      .fa-angle-up {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+.adminnav, .sidebar {
+  @include transition-property(transform);
+  @include transition-duration(0.4s);
+}
+
+.userbar {
+  position: relative;
+
+  a {
+    display: block;
+    padding: 15px;
+    color: #fff;
+    text-decoration: none;
+
+    .email {
+      display: inline-block;
+      width: calc(100% - 30px);
+      line-height: 12px;
+      padding: 0 0 0 10px;
+      float: left;
+
+      h5 {
+        position: relative;
+        color: #fff;
+        font-size: 13px;
+        font-weight: normal;
+        margin: 0px;
+        line-height: 30px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 10px;
+
+        i {
+          position: absolute;
+          top: 13px;
+          right: 0;
+        }
+      }
+    }
+
     .avatar {
       position: relative;
       display: inline-block;
       float: left;
       left: -5px;
-      top: -5px;
+      top: 0;
       border-radius: 50%;
       padding: 2px;
       border: 1px solid rgba(255, 255, 255, 0.5);
@@ -105,17 +225,24 @@ a {
       }
     }
   }
-}
 
-.outlet {
-  position: absolute;
-  top: 50px;
-  bottom: 0px;
-  left: 0;
-  right: 0;
+  .dropdown-menu {
+    top: 50px;
+    left: 15px;
+    right: 15px;
+  }
 
-  & > .loading-spinner-wrapper .loading-spinner i {
-    background: #fff;
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.07) 15%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.07) 85%, rgba(0, 0, 0, 0) 100%);
+    background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.07) 15%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.07) 85%, rgba(0, 0, 0, 0) 100%);
+    background-image: -ms-linear-gradient(left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.07) 15%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.07) 85%, rgba(0, 0, 0, 0) 100%);
+    background-image: linear,to right,rgba(0, 0, 0, 0) 0%,rgba(0, 0, 0, 0.07) 15%,rgba(0, 0, 0, 0.1) 50%,rgba(0, 0, 0, 0.07) 85%,rgba(0, 0, 0, 0) 100%;
   }
 }
 
@@ -131,7 +258,8 @@ a {
   font-weight: 200;
 }
 
-.main-content {
+
+.main-panel {
   background: white;
   position: relative;
   z-index: 2;
@@ -139,10 +267,66 @@ a {
   width: calc(100% - 260px);
   max-height: 100%;
   height: 100%;
+}
 
-  &.full {
-    width: 100%;
+.main-content {
+  padding: 30px;
+}
+
+.top-nav {
+  border-bottom: 1px solid #E7E7EC;
+  padding: 0 30px;
+  height: 50px;
+
+  .top-content {
+    position: relative;
+    vertical-align: middle;
+
+    .top-name {
+      text-align: center;
+      padding-top: 17px;
+      padding-left: 160px;
+      padding-right: 160px;
+    }
   }
+}
+
+.tab-nav {
+  box-shadow: inset 0 -1px 0 #E7E7EC;
+  padding-top: 9px;
+  text-align: center;
+  overflow: hidden;
+  margin-top: -30px;
+  margin-bottom: 30px;
+
+  a {
+    color: $dullLink;
+    position: relative;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 26px;
+    padding: 10px 2px 12px;
+
+    &.active {
+      color: $gradientBase;
+    }
+
+    &.active::after {
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      content: '';
+      background: $gradientBase;
+    }
+  }
+}
+
+.well {
+  background: #F6F6F7;
+  border: none;
+  border-bottom: 1px solid #DCDCDD;
 }
 
 .login-form {

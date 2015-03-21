@@ -1,3 +1,7 @@
-{{#each app in model}}
-<p>{{app.name}}</p>
-{{/each}}
+<div class="well">
+  {{#each app in model}}
+    <div class="appblock">
+      <p>{{app.name}}</p>
+    </div>
+  {{/each}}
+</div>

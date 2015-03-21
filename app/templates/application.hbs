@@ -1,42 +1,49 @@
-<div class="sectionnav">
-  <div class="brand">
-    Pebblescape
-  </div>
-  {{#if session.isAuthenticated}}
-  <ul class="nav navbar-nav">
-    {{#link-to 'apps' tagName="li" href=false}}
-        {{#link-to 'apps' bubbles=false}}Apps{{/link-to}}
-    {{/link-to}}
-    {{#if nothing}}
-      {{#link-to 'addons' tagName="li" href=false}}
-          {{#link-to 'addons' bubbles=false}}Addons{{/link-to}}
+{{view 'adminnav'}}
+<div class="sidebar">
+  <div class="sectionnav">
+    <div class="brand">
+      {{#link-to 'apps'}}
+        <img src="images/logo.png" alt="">
+        <h4>Pebblescape</h4>
       {{/link-to}}
-      {{#link-to 'users' tagName="li" href=false}}
-          {{#link-to 'users' bubbles=false}}Users{{/link-to}}
-      {{/link-to}}
-    {{/if}}
-    {{#link-to 'admin' tagName="li" href=false}}
-        {{#link-to 'admin' bubbles=false}}Admin{{/link-to}}
-    {{/link-to}}
-  </ul>
-  {{/if}}
+    </div>
 
-  <ul class="nav navbar-nav navbar-right">
     {{#if session.isAuthenticated}}
-    <li class="dropdown">
+    <div class="nav navbar-nav navbar-right">
+      <a href="#" class="adminnav-toggle" {{action 'toggleAdminnav'}}>
+        {{fa-icon 'navicon'}}
+        {{fa-icon 'angle-down'}}
+        {{fa-icon 'angle-up'}}
+      </a>
+    </div>
+    {{/if}}
+  </div>
+
+  {{#if session.isAuthenticated}}
+  <div class="userbar dropdown">
+    <div class="clearfix">
       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-        {{session.content.email}} <span class="avatar"><img {{bind-attr src=userGravatar}} /></span> <span class="caret"></span>
+        <span class="avatar"><img {{bind-attr src=userGravatar}} /></span>
+        <div class="email">
+          <h5>
+            {{session.content.email}}
+            <i class="caret"></i>
+          </h5>
+        </div>
       </a>
       <ul class="dropdown-menu" role="menu">
         <li><a>Manage account</a></li>
         <li class="divider"></li>
         <li><a {{ action 'invalidateSession' }}>Log out</a></li>
       </ul>
-    </li>
-    {{/if}}
-  </ul>
-</div>
+    </div>
+  </div>
 
-<div class="outlet">
+  <div class="sidelinks">
+    {{render 'favorites' model.favorites}}
+  </div>
+  {{/if}}
+</div>
+<div class="main-panel">
   {{outlet}}
 </div>
