@@ -1,3 +1,14 @@
+<div class="top-nav clearfix">
+  <div class="searchbar">
+    {{fa-icon 'search' classNames='searchicon'}}
+    {{input value=searchFilter placeholder='Search apps' class='form-control'}}
+    <div class="app-actions">
+      <a {{action 'newApp'}}>
+        {{fa-icon 'plus'}}
+      </a>
+    </div>
+  </div>
+</div>
 <div class="well">
   {{#each app in model}}
     <div class="appblock">

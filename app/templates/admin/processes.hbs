@@ -1,0 +1,17 @@
+<div class="admin-processes">
+  <div class="controls">
+    <button class="btn btn-default btn-small" {{action 'toggleRefresh'}}>{{buttonText}}</button>
+
+    {{#if autoRefresh}}
+    <div class="loading-spinner-wrapper">
+      <span class="loading-spinner">
+        <i class="one"></i>
+        <i class="two"></i>
+        <i class="three"></i>
+      </span>
+    </div>
+    {{/if}}
+  </div>
+
+  {{x-console output=output}}
+</div>

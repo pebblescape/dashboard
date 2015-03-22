@@ -6,12 +6,13 @@
   </div>
 </div>
 <div class="main-content">
-  <div class="tab-nav">
+  <div class="nav tab-nav">
     {{#link-to 'admin.addons'}}{{fa-icon 'puzzle-piece'}} Addons{{/link-to}}
     {{#link-to 'admin.users'}}{{fa-icon 'users'}} Users{{/link-to}}
-    {{#link-to 'admin.upgrades'}}{{fa-icon 'refresh'}} Updates{{/link-to}}
+    {{#link-to 'admin.updates'}}{{fa-icon 'cloud-download'}} Updates{{/link-to}}
+    {{#link-to 'admin.processes'}}{{fa-icon 'line-chart'}} Processes{{/link-to}}
   </div>
-  <div class="tab-content admin">
-    {{liquid-outlet}}
+  <div class="nav-content admin">
+    {{outlet}}
   </div>
 </div>

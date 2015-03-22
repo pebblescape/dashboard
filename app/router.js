@@ -16,8 +16,9 @@ Router.map(function() {
   this.resource('admin', function() {
     this.route('addons');
     this.route('users');
-    this.route('upgrades');
-    this.route('upgrade', { path: '/upgrade/:id' });
+    this.route('updates');
+    this.route('update', { path: '/update/:id' });
+    this.route('processes');
   });
 
   this.route('not_found', { path: '/*url' });

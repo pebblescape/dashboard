@@ -1,6 +1,6 @@
 {{view 'adminnav'}}
 <div class="sidebar">
-  <div class="sectionnav">
+  <div class="brandbar">
     <div class="brand">
       {{#link-to 'apps'}}
         <img src="images/logo.png" alt="">
@@ -9,9 +9,9 @@
     </div>
 
     {{#if session.isAuthenticated}}
-    <div class="nav navbar-nav navbar-right">
+    <div class="navbar-nav navbar-right">
       <a href="#" class="adminnav-toggle" {{action 'toggleAdminnav'}}>
-        {{fa-icon 'navicon'}}
+        {{fa-icon 'th'}}
         {{fa-icon 'angle-down'}}
         {{fa-icon 'angle-up'}}
       </a>
