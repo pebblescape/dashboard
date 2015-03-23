@@ -9,7 +9,7 @@ ssh-add deploy.pem
 git config user.email "travis@rang.ee"
 git config user.name "Travis CI"
 
-git remote add github https://github.com/pebblescape/dashboard.git || exit
+git remote add github git@github.com:pebblescape/dashboard.git || exit
 git fetch github || exit
 git checkout -t -b build github/build || exit
 git rebase master || exit
