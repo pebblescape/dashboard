@@ -9,7 +9,6 @@ ssh-add deploy.pem
 export GIT_COMMITTER_EMAIL="travis@rang.ee"
 export GIT_COMMITTER_NAME="Travis CI"
 
-git remote update || exit
 git fetch || exit
 git checkout -t -b build origin/build || exit
 git merge "$TRAVIS_COMMIT" || exit
