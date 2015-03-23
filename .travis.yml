@@ -25,6 +25,7 @@ install:
   - bower install
 
 script:
+  - cat .git/config
   - npm test
 
 after_success:
