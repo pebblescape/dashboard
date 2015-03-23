@@ -1,13 +1,11 @@
 #!/bin/bash
-set -x
-set -e
 
 eval `ssh-agent -s`
 chmod 600 deploy.pem
 ssh-add deploy.pem
 
-export GIT_COMMITTER_EMAIL="travis@rang.ee"
-export GIT_COMMITTER_NAME="Travis CI"
+git config user.email "travis@rang.ee"
+git config user.name "Travis CI"
 
 git fetch origin build:origin/build || exit
 git checkout -t -b build origin/build || exit
