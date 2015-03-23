@@ -10,7 +10,7 @@ export GIT_COMMITTER_EMAIL="travis@rang.ee"
 export GIT_COMMITTER_NAME="Travis CI"
 
 git fetch || exit
-git checkout origin/build || exit
+git checkout -t -b build origin/build || exit
 git merge "$TRAVIS_COMMIT" || exit
 git rebase master
 
