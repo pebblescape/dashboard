@@ -1,6 +1,4 @@
 #!/bin/bash
-set -x
-set -e
 
 eval `ssh-agent -s`
 chmod 600 deploy.pem
@@ -17,4 +15,4 @@ ember build --environment="production" -o ./build
 
 git add --all ./build
 git commit -m "Build $TRAVIS_COMMIT"
-git push -u github build
+git push github build
