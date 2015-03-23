@@ -28,12 +28,4 @@ script:
   - npm test
 
 after_success:
-  - chmod 600 deploy.pem
-  - ssh-add deploy.pem
-  - git checkout -b build origin/build
-  - git fetch
-  - git rebase master
   - ./build.sh
-  - git add --all ./build
-  - git commit -m "Build $TRAVIS_COMMIT"
-  - git push origin/build
