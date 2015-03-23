@@ -12,7 +12,6 @@ git config user.name "Travis CI"
 git remote add github git@github.com:pebblescape/dashboard.git || exit
 git fetch github || exit
 git checkout -t -b build github/build || exit
-git merge github/master --no-edit || exit
 
 ember build --environment="production" -o ./build
 
