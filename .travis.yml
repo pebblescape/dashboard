@@ -7,8 +7,8 @@ node_js:
 sudo: false
 
 branches:
-  only:
-    - master
+  except:
+    - build
 
 cache:
   directories:
