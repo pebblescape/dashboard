@@ -11,10 +11,7 @@ export GIT_COMMITTER_NAME="Travis CI"
 
 git fetch origin build:origin/build || exit
 git checkout -t -b build origin/build || exit
-
-git status
-
-git merge master || exit
+git rebase master || exit
 
 ember build --environment="production" -o ./build
 
