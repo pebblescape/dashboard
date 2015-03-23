@@ -1,4 +1,6 @@
 #!/bin/bash
+set -x
+set -e
 
 eval `ssh-agent -s`
 chmod 600 deploy.pem
@@ -7,7 +9,7 @@ ssh-add deploy.pem
 export GIT_COMMITTER_EMAIL="travis@rang.ee"
 export GIT_COMMITTER_NAME="Travis CI"
 
-git fetch origin || exit
+git fetch || exit
 git checkout origin/build || exit
 git merge "$TRAVIS_COMMIT" || exit
 git rebase master
