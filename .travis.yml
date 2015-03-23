@@ -26,6 +26,7 @@ install:
 
 script:
   - npm test
+  - ./build.sh
 
 after_success:
   - ./build.sh
