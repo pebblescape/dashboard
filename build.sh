@@ -11,7 +11,7 @@ git remote add github git@github.com:pebblescape/dashboard.git || exit
 git fetch github || exit
 git checkout -t -b build github/build || exit
 
-ember build --environment="production" -o ./build
+npm build
 
 git add --all ./build
 git commit -m "Build $TRAVIS_COMMIT"
