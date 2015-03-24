@@ -32,4 +32,4 @@ script:
 
 after_success:
   - ./build.sh
-  - curl --data "build=true" -X POST $DOCKERTRIGGER
+  - #curl --data "build=true" -X POST $DOCKERTRIGGER
