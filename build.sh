@@ -19,4 +19,4 @@ ember build --environment="production" -o ./build
 
 git add --all ./build
 git commit -m "Build $TRAVIS_COMMIT"
-git push github github/build
+git push github build
