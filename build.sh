@@ -1,6 +1,7 @@
 #!/bin/bash
-set -x
+
 set -e
+set -x
 
 eval `ssh-agent -s`
 chmod 600 deploy.pem
@@ -9,13 +10,13 @@ ssh-add deploy.pem
 git config user.email "travis@rang.ee"
 git config user.name "Travis CI"
 
-git remote add github git@github.com:pebblescape/dashboard.git || exit
-git fetch github || exit
-git checkout -t -b build github/build || exit
-git merge github/master || exit
+git remote add github git@github.com:pebblescape/dashboard.git
+git fetch github
+git checkout -t -b build github/build
+git merge github/master --no-edit
 
 ember build --environment="production" -o ./build
 
-git add --all ./build
+git add --all .
 git commit -m "Build $TRAVIS_COMMIT"
-git push -u github build
+git push github build
