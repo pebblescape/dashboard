@@ -14,18 +14,12 @@ export default ProtectedRoute.extend({
       if (repo.get('upgrading')) {
         controller.set('upgrading', repo);
       }
-
-      // Special case: Upgrade docker manager first
-      // if (repo.get('id') === 'docker_manager') {
-      //   controller.set('managerRepo', repo);
-      // }
-
     });
   },
 
   actions: {
     upgrade: function(repo) {
-      this.transitionTo('admin.upgrade', repo);
+      this.transitionTo('admin.update', repo);
     }
   }
 });
