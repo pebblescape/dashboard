@@ -283,10 +283,12 @@ a {
   .top-content {
     position: relative;
     vertical-align: middle;
+    width: 100%;
+    display: table-cell;
 
     .top-name {
       text-align: center;
-      padding-top: 17px;
+      vertical-align: middle;
       padding-left: 160px;
       padding-right: 160px;
     }
