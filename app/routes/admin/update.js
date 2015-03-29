@@ -33,6 +33,6 @@ export default ProtectedRoute.extend({
   },
 
   deactivate: function() {
-    this.controllerFor('admin.upgrade').stopBus();
+    this.controllerFor('admin.update').stopBus();
   }
 });
