@@ -1,5 +1,5 @@
 <div id="upgrade">
-  <h3>Upgrade {{name}}</h3>
+  <h3>Upgrade {{model.name}}</h3>
 
   {{progress-bar percent=percent}}
 
@@ -18,11 +18,11 @@
     <p>Sorry, there was an error upgrading Pebblescape. Please check the logs below.</p>
   {{/if}}
 
-  {{#if upToDate}}
-    <p>{{name}} is at the newest version {{fmt-commit version url}}.</p>
+  {{#if model.upToDate}}
+    <p>{{model.name}} is at the newest version {{fmt-commit model.version model.url}}.</p>
   {{else}}
     <div style='clear: both'>
-      <button {{action "start"}} {{bind-attr disabled="upgrading"}} class='btn btn-primary'>{{upgradeButtonText}}</button>
+      <button {{action "start"}} disabled="{{upgrading}}" class='btn btn-primary'>{{upgradeButtonText}}</button>
       {{#if upgrading}}
         <button {{action "resetUpgrade"}} class="btn btn-warning">Reset Upgrade</button>
       {{/if}}

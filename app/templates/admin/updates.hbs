@@ -7,27 +7,27 @@
     {{#each repo in model itemController="repo"}}
     <tr>
       <td>
-        {{repo.name}}
-        {{fmt-commit repo.version repo.url}}
+        {{repo.model.name}}
+        {{fmt-commit repo.model.version repo.model.url}}
       </td>
       <td>
-        {{#if repo.checking}}
+        {{#if repo.model.checking}}
           Checking for new version...
         {{else}}
-          {{#if repo.upToDate}}
+          {{#if repo.model.upToDate}}
             Up to date
           {{else}}
             <div class='new-version'>
               <h4>New Version Available!</h4>
               <ul>
-                <li>Remote Version: {{fmt-commit repo.latest.version repo.url}}</li>
-                <li>Last Updated: {{fmt-ago repo.latest.date}}</li>
-                <li class='new-commits'>{{repo.latest.commits_behind}} new commits</li>
+                <li>Remote Version: {{fmt-commit repo.model.latest.version repo.url}}</li>
+                <li>Last Updated: {{fmt-ago repo.model.latest.date}}</li>
+                <li class='new-commits'>{{repo.model.latest.commits_behind}} new commits</li>
               </ul>
-              {{#if upgrading}}
+              {{#if model.upgrading}}
                 <button class="btn btn-primary" {{action "upgrade" repo}}>Currently Upgrading...</button>
               {{else}}
-                <button class="btn btn-primary" {{action "upgrade" repo}} {{bind-attr disabled="upgradeDisabled"}}>Upgrade to the Latest Version</button>
+                <button class="btn btn-primary" {{action "upgrade" repo}} disabled="{{upgradeDisabled}}">Upgrade to the Latest Version</button>
               {{/if}}
             </div>
           {{/if}}

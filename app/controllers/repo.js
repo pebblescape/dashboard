@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-export default Ember.ObjectController.extend({
+export default Ember.Controller.extend({
   needs: ['admin'],
 
   upgradingRepo: Ember.computed.alias('controllers.admin.upgrading'),
