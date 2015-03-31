@@ -47,6 +47,7 @@ deploy:
   cache_control: "max-age=31536000"
   on:
     repo: pebblescape/dashboard
+    node: '0.12'
 
 after_deploy:
   - curl --data "build=true" -X POST $DOCKERTRIGGER
