@@ -2,7 +2,11 @@
 
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 
-var app = new EmberApp();
+var app = new EmberApp({
+  fingerprint: {
+    prepend: '//d1uq7xqh8ryyi8.cloudfront.net/'
+  }
+});
 
 app.import('bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js');
 app.import('bower_components/bootbox/bootbox.js');
