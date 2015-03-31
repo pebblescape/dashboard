@@ -2,8 +2,11 @@ language: node_js
 
 node_js:
   - '0.12'
+  - 'iojs'
 
-sudo: false
+matrix:
+  allow_failures:
+    - node_js: 'iojs'
 
 env:
   secure: RyAVxLnM59XvrSz5ZoK/f2dtbLAkUnXH1RFyCzYFd61wrXPNhlqIrbxuw7K/xrw8EAGDuwwiaSzVhUYcBlEdaVdwZ24XC7h6Ro6Szcxk0HuQIctHFCm/8QJ41WqQdXWvkYHg8Yw9lCKfiNle5mkSvu0UH/8m6C3lBB8pxY4zziQ=
