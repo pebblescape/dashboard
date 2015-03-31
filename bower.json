@@ -12,6 +12,11 @@
     "ember-qunit": "0.2.8",
     "ember-qunit-notifications": "0.0.7",
     "qunit": "~1.17.1",
-    "ember-simple-auth": "0.7.3"
+    "ember-simple-auth": "0.7.3",
+    "md5": "~0.3.0",
+    "bootstrap-sass-official": "~3.3.3",
+    "bootbox": "~4.4.0",
+    "message-bus": "https://raw.githubusercontent.com/SamSaffron/message_bus.git",
+    "momentjs": "~2.9.0"
   }
 }
