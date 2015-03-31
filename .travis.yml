@@ -36,7 +36,7 @@ deploy:
     secure: bmNf1UhAfBB2sK+sH+yZgWh4mAFOk3UwaCXTuG8/EgnN/E/zRaBGKGIKJb7XtAfP/OK+EMoKcoxRhssgNMGld+ZOIUnuzmKdnhp8w3d07flUrZCYsDEzedlrEoyf+CI7QNNLksBzKoOVt9YvSZGaR9Dz2diF3Gbn2v9Og54Z8sM=
   bucket: pebblescape
   local-dir: build
-  upload-dir: dashboard
+  # upload-dir: dashboard
   acl: public_read
   skip_cleanup: true
   region: eu-west-1
