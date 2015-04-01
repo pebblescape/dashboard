@@ -5,7 +5,7 @@ export default Ember.Controller.extend(LoginControllerMixin, {
   authenticator: 'simple-auth-authenticator:devise',
   error: null,
 
-  loginDisabled: function() {
+  isDisabled: function() {
     return Ember.isBlank(this.get('identification')) || Ember.isBlank(this.get('password'));
   }.property('identification', 'password'),
 

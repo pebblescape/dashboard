@@ -10,5 +10,17 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
     } else {
       return {};
     }
+  },
+
+  actions: {
+    error: function(err){
+      // When API token is invalidated, flush session and force login
+      if (err.status === 403 || err.errorThrown === "Forbidden") {
+        this.get('session').invalidate();
+        return;
+      }
+
+      return true;
+    }
   }
 });
