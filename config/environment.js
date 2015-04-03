@@ -30,7 +30,7 @@ module.exports = function(environment) {
       cdn: '//cdn.ravenjs.com',
       dsn: process.env.RAVEN_DSN,
       version: '1.1.16',
-      whitelistUrls: [ 'localhost:4200', 'api.pebblesinspace.com' ],
+      whitelistUrls: [ 'api.pebblesinspace.com' ],
       development: true // Set to true, to disable while developing
     },
 

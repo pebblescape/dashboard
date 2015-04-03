@@ -3,5 +3,7 @@
 set -e
 set -x
 
+ref=$(git rev-parse --short HEAD)
 ember build --environment="production" -o ./build
-cp build/index.html build/index.$(git rev-parse --short HEAD).html
+sed -i '' "s/refplaceholder/$ref/g" ./build/index.html
+cp build/index.html build/index.$ref.html
