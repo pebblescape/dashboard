@@ -1,3 +1,5 @@
+/* global bootbox */
+
 import Repo from 'dashboard/models/repo';
 import ProtectedRoute from 'dashboard/routes/protected';
 
@@ -19,7 +21,7 @@ export default ProtectedRoute.extend({
 
   actions: {
     upgrade: function(repo) {
-      if (repo.get('name') == 'dashboard') {
+      if (repo.get('name') === 'dashboard') {
         if (repo.get('upgrading')) { return; }
         repo.startUpgrade().then(function(){
           repo.set('upgrading', false);
