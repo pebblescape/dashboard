@@ -74,8 +74,8 @@ Repo.reopenClass({
     return new Ember.RSVP.Promise(function (resolve, reject) {
       if (loaded.length) { return resolve(loaded); }
 
-      ajax("/admin/repos").then(function(result) {
-        loaded = result.repos.map(function(r) {
+      ajax("/admin/upgrades").then(function(result) {
+        loaded = result.upgrades.map(function(r) {
           return Repo.create(r);
         });
         resolve(loaded);
