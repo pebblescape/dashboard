@@ -11,9 +11,6 @@ export default Ember.Controller.extend({
   complete: Ember.computed.equal('status', 'complete'),
   failed: Ember.computed.equal('status', 'failed'),
 
-  mikeUpgrade: Ember.computed.equal('model.name', 'mike'),
-  dashboardUpgrade: Ember.computed.equal('model.name', 'dashboard'),
-
   messageReceived: function(msg) {
     switch(msg.type) {
       case "log":
@@ -37,12 +34,12 @@ export default Ember.Controller.extend({
   },
 
   upgradeButtonText: function() {
-    if (this.get('upgrading')) {
+    if (this.get('model.upgrading')) {
       return "Upgrading...";
     } else {
       return "Start Upgrading";
     }
-  }.property('upgrading'),
+  }.property('model.upgrading'),
 
   startBus: function() {
     var self = this;
