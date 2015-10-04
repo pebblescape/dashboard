@@ -22,7 +22,8 @@ module.exports = function(environment) {
       "img-src": "'self' data: app.getsentry.com *",
       "script-src": "'self' 'unsafe-eval' http://*:35729 //cdn.ravenjs.com ",
       "font-src": "'self' http://fonts.gstatic.com",
-      "style-src": "'self' 'unsafe-inline' http://fonts.googleapis.com"
+      "style-src": "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      "connect-src": "'self' ws://localhost:35729 ws://0.0.0.0:35729 http://0.0.0.0:4200/csp-report *"
     },
 
     sentry: {
